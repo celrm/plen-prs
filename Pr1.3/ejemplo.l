@@ -24,10 +24,10 @@ letra  = ([A-Z]|[a-z])
 separador = [ \t\r\b\n]
 palabra = {letra}+
 patron = (({letra}*)\*({letra}*))
-otro = ((^{separador})+)
+otro = [^\n]*
 %%
 {separador}               {}
 {palabra}                  {return ops.unidadPalabra();}
 {patron}                   {return ops.unidadPatron();}
-[^]           {return ops.unidadOtro();}
+{otro}           {return ops.unidadOtro();}
 [^]                       {ops.error();}  

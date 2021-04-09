@@ -208,21 +208,22 @@ class AnalizadorLexicoTiny {
 		return res;
 	}
 	private int yy_acpt[] = {
-		/* 0 */ YY_NOT_ACCEPT,
+		/* 0 */ YY_NO_ANCHOR,
 		/* 1 */ YY_NO_ANCHOR,
 		/* 2 */ YY_NO_ANCHOR,
 		/* 3 */ YY_NO_ANCHOR,
 		/* 4 */ YY_NO_ANCHOR,
-		/* 5 */ YY_NO_ANCHOR
+		/* 5 */ YY_NO_ANCHOR,
+		/* 6 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,65538,
-"4:8,1:3,4:2,1,4:18,1,4:9,3,4:22,2:26,4:6,2:26,4:65413,0:2")[0];
+"4:8,5:2,1,4:2,5,4:18,5,4:9,3,4:22,2:26,4:6,2:26,4:65413,0:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,6,
-"0,1:2,2,3,1")[0];
+	private int yy_rmap[] = unpackFromString(1,7,
+"0,1:2,2,3,4:2")[0];
 
-	private int yy_nxt[][] = unpackFromString(4,5,
-"1,2,3,4,5,-1:7,3,4,-1:3,4,-1:2");
+	private int yy_nxt[][] = unpackFromString(5,6,
+"1,2,3,4,5,6,-1:8,3,4,5:2,-1:2,4,5:3,-1:2,5:4");
 
 	public UnidadLexica yylex ()
 		throws java.io.IOException {
@@ -269,25 +270,33 @@ class AnalizadorLexicoTiny {
 					}
 					yy_to_mark();
 					switch (yy_last_accept_state) {
+					case 0:
+						{return ops.unidadOtro();}
+					case -2:
+						break;
 					case 1:
 						
-					case -2:
+					case -3:
 						break;
 					case 2:
 						{}
-					case -3:
+					case -4:
 						break;
 					case 3:
 						{return ops.unidadPalabra();}
-					case -4:
+					case -5:
 						break;
 					case 4:
 						{return ops.unidadPatron();}
-					case -5:
+					case -6:
 						break;
 					case 5:
 						{return ops.unidadOtro();}
-					case -6:
+					case -7:
+						break;
+					case 6:
+						{}
+					case -8:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);
