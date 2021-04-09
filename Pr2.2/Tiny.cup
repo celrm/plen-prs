@@ -1,0 +1,56 @@
+package asint;
+
+import java_cup.runtime.*;
+import alex.AnalizadorLexicoTiny;
+import alex.UnidadLexica;
+import errors.GestionErroresTiny;
+
+scan with {: return getScanner().next_token(); :};
+parser code {: 
+   private GestionErroresTiny errores;
+   public void syntax_error(Symbol unidadLexica) {
+     errores.errorSintactico((UnidadLexica)unidadLexica);
+   }
+:};
+init with {: 
+   errores = new GestionErroresTiny();
+   AnalizadorLexicoTiny alex = (AnalizadorLexicoTiny)getScanner();
+   alex.fijaGestionErrores(errores);
+:};
+
+
+terminal    Num, IDEN, 
+            OpGE, OpLE, OpEQ, OpNEQ,
+            MAS, MENOS, POR, DIV,
+            LB, RB,
+            COMA,
+            ASS, PRINT, CONCAT, LREDUCE, LMAP, LFILTER 
+            ;
+
+non terminal  
+    Prog, Ins, LIns, List, BList,
+    COMITAS, RELL, 
+    REL, AP, OP0, OP1 ;
+
+
+REL     ::= OpGE | OpLE | OpEQ | OpNEQ ;
+AP      ::= OP0 | OP1 ;
+OP0     ::= MAS | MENOS ;
+OP1     ::= POR | DIV ;
+
+Prog    ::= LIns ;
+LIns    ::= Ins LIns | ;
+Ins     ::= IDEN ASS List
+          | PRINT List ;
+
+List    ::= BList 
+         | BList CONCAT List ;
+BList   ::= IDEN
+         | LREDUCE AP BList 
+         | LMAP AP Num BList 
+         | LFILTER REL Num BList
+         | LB COMITAS RB ;
+
+COMITAS ::= RELL | RELL COMA COMITAS ;
+RELL    ::= Num | LB COMITAS RB ;
+
