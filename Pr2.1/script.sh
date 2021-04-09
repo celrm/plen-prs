@@ -5,8 +5,6 @@ cp AnalizadorSintacticoTiny.java AnalizadorSintacticoCUP/asint/AnalizadorSintact
 cp ClaseLexica.java AnalizadorSintacticoCUP/asint/ClaseLexica.java
 
 cd AnalizadorSintacticoCUP/
-java -cp jlex.jar JLex.Main ejemplo.l
-cp ejemplo.l.java alex/AnalizadorLexicoTiny.java
 
 javac -cp "../cup.jar" */*.java
 java -cp ".:../cup.jar" asint.Main ../input.txt
