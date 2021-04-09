@@ -15,7 +15,7 @@ parser code {:
 init with {: 
    errores = new GestionErroresTiny();
    AnalizadorLexicoTiny alex = (AnalizadorLexicoTiny)getScanner();
-   alex.fijaGestionErrores(errores);
+   //alex.fijaGestionErrores(errores);
 :};
 
 

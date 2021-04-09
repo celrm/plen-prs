@@ -1,6 +1,7 @@
 package alex;
 
 import asint.ClaseLexica;
+import errors.GestionErroresTiny;
 
 public class ALexOperations {
   private AnalizadorLexicoTiny alex;
@@ -63,8 +64,14 @@ public class ALexOperations {
   } 
   public UnidadLexica unidadConcat() {
      return new UnidadLexica(alex.fila(),ClaseLexica.CONCAT,alex.lexema()); 
-  } 
+  }
   public UnidadLexica unidadEof() {
      return new UnidadLexica(alex.fila(),ClaseLexica.EOF,"<EOF>"); 
+  }
+  public void error() {
+    System.err.println("***"+alex.fila()+" Caracter inexperado: "+alex.lexema());
+  }
+  public void fijaGestionErrores(GestionErroresTiny error) {
+    System.err.println("ERRORES"); // ?????
   }
 }
