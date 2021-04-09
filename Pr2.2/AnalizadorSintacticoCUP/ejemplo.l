@@ -35,7 +35,7 @@ mas = \+
 menos = \-
 por = \*
 div = /
- = \[
+leftbrac = \[
 rightbrac = \]
 coma = ,
 ass = \=
