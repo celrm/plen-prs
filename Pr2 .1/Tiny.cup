@@ -19,38 +19,19 @@ init with {:
 :};
 
 
-terminal    Num, IDEN, 
-            OpGE, OpLE, OpEQ, OpNEQ,
-            MAS, MENOS, POR, DIV,
-            LB, RB,
-            COMA,
-            ASS, PRINT, CONCAT, LREDUCE, LMAP, LFILTER 
-            ;
+terminal     DONDE, EVALUA, IDEN, ENT, REAL, MAS,
+             MENOS, POR, DIV, IGUAL, COMA, PAP, PCIERRE;
 
-non terminal  
-    Prog, Ins, LIns, List, BList,
-    COMITAS, RELL, 
-    REL, AP, OP0, OP1 ;
+non terminal  S, Ds, LDs, D, E0, E1, E2, OP0, OP1;
 
+S   ::= EVALUA E0 Ds ;
+Ds  ::= DONDE LDs | ;
+LDs ::= LDs COMA D | D ;
+D   ::= IDEN IGUAL E0 ;
+E0  ::= E0 OP0 E1  | E1 ;
+E1  ::= E1 OP1 E2  | E2 ;
+E2  ::= ENT  | REAL  | IDEN  | PAP E0 PCIERRE ;  
+OP0 ::= MAS  | MENOS ;
+OP1 ::= POR | DIV ;
 
-REL     ::= OpGE | OpLE | OpEQ | OpNEQ ;
-AP      ::= OP0 | OP1 ;
-OP0     ::= MAS | MENOS ;
-OP1     ::= POR | DIV ;
-
-Prog    ::= LIns ;
-LIns    ::= Ins LIns | ;
-Ins     ::= IDEN ASS List
-          | PRINT List ;
-
-List    ::= BList 
-         | BList CONCAT List ;
-BList   ::= IDEN
-         | LREDUCE AP BList 
-         | LMAP AP Num BList 
-         | LFILTER REL Num BList
-         | LB COMITAS RB ;
-
-COMITAS ::= RELL | RELL COMA COMITAS ;
-RELL    ::= Num | LB COMITAS RB ;
 
