@@ -30,10 +30,8 @@ comentario = #[^\n]*
 evalua = evalua
 donde = donde
 identificador = {letra}({letra}|{digito})*
-numeroEntero = [\+\-]?{parteEntera}
-numeroReal = [\+\-]?{parteEntera}\.{parteDecimal}
-numeroBin = 0b[01]+
-numeroHex = 0x({digito}|[A-F]|[a-f])+
+numeroEntero = [\+,\-]?{parteEntera}
+numeroReal = [\+,\-]?{parteEntera}\.{parteDecimal}
 operadorSuma = \+
 operadorResta = \-
 operadorMultiplicacion = \*
@@ -41,7 +39,7 @@ operadorDivision = /
 parentesisApertura = \(
 parentesisCierre = \)
 igual = \=
-coma  = \,
+coma  = ,
 %%
 {separador}               {}
 {comentario}              {}
@@ -50,8 +48,6 @@ coma  = \,
 {identificador}           {return ops.unidadId();}
 {numeroEntero}            {return ops.unidadEnt();}
 {numeroReal}              {return ops.unidadReal();}
-{numeroBin}              {return ops.unidadBin();}
-{numeroHex}                  {return ops.unidadHex();}
 {operadorSuma}            {return ops.unidadSuma();}
 {operadorResta}           {return ops.unidadResta();}
 {operadorMultiplicacion}  {return ops.unidadMul();}

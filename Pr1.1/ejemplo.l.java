@@ -228,39 +228,29 @@ class AnalizadorLexicoTiny {
 		/* 17 */ YY_NO_ANCHOR,
 		/* 18 */ YY_NO_ANCHOR,
 		/* 19 */ YY_NO_ANCHOR,
-		/* 20 */ YY_NOT_ACCEPT,
+		/* 20 */ YY_NO_ANCHOR,
 		/* 21 */ YY_NO_ANCHOR,
 		/* 22 */ YY_NO_ANCHOR,
-		/* 23 */ YY_NOT_ACCEPT,
+		/* 23 */ YY_NO_ANCHOR,
 		/* 24 */ YY_NO_ANCHOR,
 		/* 25 */ YY_NO_ANCHOR,
 		/* 26 */ YY_NO_ANCHOR,
-		/* 27 */ YY_NO_ANCHOR,
-		/* 28 */ YY_NO_ANCHOR,
-		/* 29 */ YY_NO_ANCHOR,
-		/* 30 */ YY_NO_ANCHOR,
-		/* 31 */ YY_NO_ANCHOR,
-		/* 32 */ YY_NO_ANCHOR
+		/* 27 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,65538,
-"3:8,4:2,1,3:2,4,3:18,4,3:2,2,3:4,27,28,25,24,30,17,18,26,16,20,15:8,3:3,29," +
-"3:3,22:6,13:20,3:6,7,19,23,10,5,23,14:5,8,14,12,11,14:5,9,6,14,21,14:2,3:65" +
-"413,0:2")[0];
+"3:8,4:2,1,3:2,4,3:18,4,3:2,2,3:4,23,24,21,19,17,20,18,22,16,15:9,3:3,25,3:3" +
+",13:26,3:6,7,14:2,10,5,14:6,8,14,12,11,14:5,9,6,14:4,3:65413,0:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,33,
-"0,1:2,2,1,3,4,5:2,1:6,6,7,8,9:2,7,10,11,8,12,13,14,15,16,17,18,9:2")[0];
+	private int yy_rmap[] = unpackFromString(1,28,
+"0,1:2,2,1,3,4,5:3,1:5,6,7:2,8,9,10,11,12,13,14,15,7:2")[0];
 
-	private int yy_nxt[][] = unpackFromString(19,31,
-"1,2,3,4,2,5,32:4,29,32:4,6,21,7,4,32,6,32:3,8,9,10,11,12,13,14,-1:33,3:29,-" +
-"1:5,32,30,32:6,31,32,31:2,-1:2,32,31,32,31,32,-1:22,6:2,-1,15,-1,6,-1:25,6," +
-"-1:4,6,-1:25,15:2,-1:3,15,-1:26,16,-1:3,16,-1:15,17,-1,17,-1:2,17,-1:4,17:2" +
-",-1:2,17:2,-1,17:2,-1:12,32:8,31,32,31:2,-1:2,32,31,32,31,32,-1:26,20,-1,23" +
-",-1:14,18,32:7,31,32,31:2,-1:2,32,31,32,31,32,-1:12,32:2,19,32:5,31,32,31:2" +
-",-1:2,32,31,32,31,32,-1:12,32:5,22,32:2,31,32,31:2,-1:2,32,31,32,31,32,-1:1" +
-"2,32:4,24,32:3,31,32,31:2,-1:2,32,31,32,31,32,-1:12,32:7,25,31,32,31:2,-1:2" +
-",32,31,32,31,32,-1:12,32:3,26,32:4,31,32,31:2,-1:2,32,31,32,31,32,-1:12,32:" +
-"6,27,32,31,32,31:2,-1:2,32,31,32,31,32,-1:12,32:2,28,32:5,31,32,31:2,-1:2,3" +
-"2,31,32,31,32,-1:7");
+	private int yy_nxt[][] = unpackFromString(16,26,
+"1,2,3,4,2,5,27:4,24,27:4,6,4,7,4,8,9,10,11,12,13,14,-1:28,3:24,-1:5,27,25,2" +
+"7:6,26,27,26:2,-1:24,6:2,-1,15,-1:22,6,-1:25,15:2,-1:14,27:8,26,27,26:2,-1:" +
+"14,16,27:7,26,27,26:2,-1:14,27:2,17,27:5,26,27,26:2,-1:14,27:5,18,27:2,26,2" +
+"7,26:2,-1:14,27:4,19,27:3,26,27,26:2,-1:14,27:7,20,26,27,26:2,-1:14,27:3,21" +
+",27:4,26,27,26:2,-1:14,27:6,22,27,26,27,26:2,-1:14,27:2,23,27:5,26,27,26:2," +
+"-1:9");
 
 	public UnidadLexica yylex ()
 		throws java.io.IOException {
@@ -332,7 +322,7 @@ class AnalizadorLexicoTiny {
 					case -7:
 						break;
 					case 7:
-						{return ops.unidadResta();}
+						{return ops.unidadComa();}
 					case -8:
 						break;
 					case 8:
@@ -340,27 +330,27 @@ class AnalizadorLexicoTiny {
 					case -9:
 						break;
 					case 9:
-						{return ops.unidadMul();}
+						{return ops.unidadResta();}
 					case -10:
 						break;
 					case 10:
-						{return ops.unidadDiv();}
+						{return ops.unidadMul();}
 					case -11:
 						break;
 					case 11:
-						{return ops.unidadPAp();}
+						{return ops.unidadDiv();}
 					case -12:
 						break;
 					case 12:
-						{return ops.unidadPCierre();}
+						{return ops.unidadPAp();}
 					case -13:
 						break;
 					case 13:
-						{return ops.unidadIgual();}
+						{return ops.unidadPCierre();}
 					case -14:
 						break;
 					case 14:
-						{return ops.unidadComa();}
+						{return ops.unidadIgual();}
 					case -15:
 						break;
 					case 15:
@@ -368,64 +358,52 @@ class AnalizadorLexicoTiny {
 					case -16:
 						break;
 					case 16:
-						{return ops.unidadBin();}
+						{return ops.unidadDonde();}
 					case -17:
 						break;
 					case 17:
-						{return ops.unidadHex();}
+						{return ops.unidadEvalua();}
 					case -18:
 						break;
 					case 18:
-						{return ops.unidadDonde();}
+						{return ops.unidadId();}
 					case -19:
 						break;
 					case 19:
-						{return ops.unidadEvalua();}
+						{return ops.unidadId();}
 					case -20:
 						break;
-					case 21:
-						{ops.error();}
+					case 20:
+						{return ops.unidadId();}
 					case -21:
 						break;
-					case 22:
+					case 21:
 						{return ops.unidadId();}
 					case -22:
 						break;
-					case 24:
+					case 22:
 						{return ops.unidadId();}
 					case -23:
 						break;
-					case 25:
+					case 23:
 						{return ops.unidadId();}
 					case -24:
 						break;
-					case 26:
+					case 24:
 						{return ops.unidadId();}
 					case -25:
 						break;
-					case 27:
+					case 25:
 						{return ops.unidadId();}
 					case -26:
 						break;
-					case 28:
+					case 26:
 						{return ops.unidadId();}
 					case -27:
 						break;
-					case 29:
+					case 27:
 						{return ops.unidadId();}
 					case -28:
-						break;
-					case 30:
-						{return ops.unidadId();}
-					case -29:
-						break;
-					case 31:
-						{return ops.unidadId();}
-					case -30:
-						break;
-					case 32:
-						{return ops.unidadId();}
-					case -31:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);

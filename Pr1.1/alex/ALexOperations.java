@@ -21,12 +21,6 @@ public class ALexOperations {
   public UnidadLexica unidadReal() {
      return new UnidadLexicaMultivaluada(alex.fila(),ClaseLexica.REAL,alex.lexema()); 
   } 
-  public UnidadLexica unidadBin() {
-     return new UnidadLexicaMultivaluada(alex.fila(),ClaseLexica.BIN,alex.lexema()); 
-  } 
-  public UnidadLexica unidadHex() {
-     return new UnidadLexicaMultivaluada(alex.fila(),ClaseLexica.HEX,alex.lexema()); 
-  } 
   public UnidadLexica unidadSuma() {
      return new UnidadLexicaUnivaluada(alex.fila(),ClaseLexica.MAS); 
   } 
