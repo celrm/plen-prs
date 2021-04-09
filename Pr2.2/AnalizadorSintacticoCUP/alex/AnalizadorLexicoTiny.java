@@ -1,7 +1,7 @@
 package alex;
 
 
-class AnalizadorLexicoTiny {
+public class AnalizadorLexicoTiny {
 	private final int YY_BUFFER_SIZE = 512;
 	private final int YY_F = -1;
 	private final int YY_NO_STATE = -1;
@@ -25,7 +25,7 @@ class AnalizadorLexicoTiny {
 	private boolean yy_at_bol;
 	private int yy_lexical_state;
 
-	AnalizadorLexicoTiny (java.io.Reader reader) {
+	public AnalizadorLexicoTiny (java.io.Reader reader) {
 		this ();
 		if (null == reader) {
 			throw (new Error("Error: Bad input stream initializer."));
@@ -33,7 +33,7 @@ class AnalizadorLexicoTiny {
 		yy_reader = new java.io.BufferedReader(reader);
 	}
 
-	AnalizadorLexicoTiny (java.io.InputStream instream) {
+	public AnalizadorLexicoTiny (java.io.InputStream instream) {
 		this ();
 		if (null == instream) {
 			throw (new Error("Error: Bad input stream initializer."));
