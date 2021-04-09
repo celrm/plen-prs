@@ -33,15 +33,16 @@ non terminal
     REL, AP, OP0, OP1 ;
 
 
-REL     ::= OpGE | OpLE | OpEQ | OpNEQ ;
-AP      ::= OP0 | OP1 ;
-OP0     ::= MAS | MENOS ;
-OP1     ::= POR | DIV ;
-
 Prog    ::= LIns ;
 LIns    ::= Ins LIns | ;
 Ins     ::= IDEN ASS List
           | PRINT List ;
+          
+
+REL     ::= OpGE | OpLE | OpEQ | OpNEQ ;
+AP      ::= OP0 | OP1 ;
+OP0     ::= MAS | MENOS ;
+OP1     ::= POR | DIV ;
 
 List    ::= BList 
          | BList CONCAT List ;
