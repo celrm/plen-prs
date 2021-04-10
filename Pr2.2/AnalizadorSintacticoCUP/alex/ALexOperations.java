@@ -72,6 +72,6 @@ public class ALexOperations {
     System.err.println("***"+alex.fila()+" Caracter inexperado: "+alex.lexema());
   }
   public void fijaGestionErrores(GestionErroresTiny error) {
-    System.err.println("ERRORES"); // ?????
+    error.errorLexico(alex.fila(),alex.lexema());
   }
 }

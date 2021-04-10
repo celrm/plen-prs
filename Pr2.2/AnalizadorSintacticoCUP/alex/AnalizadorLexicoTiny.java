@@ -1,7 +1,7 @@
 package alex;
 
 
-public class AnalizadorLexicoTiny {
+public class AnalizadorLexicoTiny implements java_cup.runtime.Scanner {
 	private final int YY_BUFFER_SIZE = 512;
 	private final int YY_F = -1;
 	private final int YY_NO_STATE = -1;
@@ -275,7 +275,7 @@ public class AnalizadorLexicoTiny {
 "41,-1:5,41:10,36,41:2,-1:11,33:3,41,-1:5,41,42,41:11,-1:11,33:3,41,-1:5,41:" +
 "2,34,41:10,-1:11,33:3,41");
 
-	public UnidadLexica yylex ()
+	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
 		int yy_lookahead;
 		int yy_anchor = YY_NO_ANCHOR;

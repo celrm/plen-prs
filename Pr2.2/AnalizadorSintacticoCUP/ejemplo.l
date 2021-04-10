@@ -6,6 +6,7 @@ package alex;
 %type  UnidadLexica
 %unicode
 %public
+%cup
 
 %{
   private ALexOperations ops;
