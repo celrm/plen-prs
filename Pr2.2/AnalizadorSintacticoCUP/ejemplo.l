@@ -26,9 +26,9 @@ letra  = ([A-Z]|[a-z])
 separador = [ \t\r\b\n]
 comentario = //[^\n]*
 digitoPos = [1-9]
-digito = {digitoPos}|0
-numero = {digitoPos}{digito}*
-identificador = {letra}({letra}|{digito})*
+digito = ({digitoPos}|0)
+numero = ({digitoPos}({digito})*)
+identificador = ({letra}({letra}|{digito})*)
 opge = >
 ople = <
 opeq = \=\=
@@ -39,7 +39,7 @@ por = \*
 div = /
 leftbrac = \[
 rightbrac = \]
-coma = ,
+coma = \,
 ass = \=
 print = print
 concat = #

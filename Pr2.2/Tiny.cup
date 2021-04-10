@@ -19,39 +19,41 @@ init with {:
 :};
 
 
-terminal    Num, IDEN, 
+terminal    Num, Iden, 
             OpGE, OpLE, OpEQ, OpNEQ,
-            MAS, MENOS, POR, DIV,
-            LB, RB,
-            COMA,
-            ASS, PRINT, CONCAT, LREDUCE, LMAP, LFILTER 
+            Mas, Menos, Por, Div,
+            Lb, Rb,
+            Coma,
+            Ass, Print, Concat, Lreduce, Lmap, Lfilter 
             ;
 
 non terminal  
-    Prog, Ins, LIns, List, BList,
-    COMITAS, RELL, 
-    REL, AP, OP0, OP1 ;
+    PROG, INST, LINST, LISTA, BLISTA,
+    DENTRO, COMITAS, ELEM, 
+    OPREL, OPAR, OP0, OP1 ;
 
 
-Prog    ::= LIns ;
-LIns    ::= Ins LIns | ;
-Ins     ::= IDEN ASS List
-          | PRINT List ;
+PROG    ::= LINST ;
+LINST    ::= INST LINST | ;
+INST     ::= Iden Ass LISTA
+          | Print LISTA ;
           
 
-REL     ::= OpGE | OpLE | OpEQ | OpNEQ ;
-AP      ::= OP0 | OP1 ;
-OP0     ::= MAS | MENOS ;
-OP1     ::= POR | DIV ;
+OPREL     ::= OpGE | OpLE | OpEQ | OpNEQ ;
+OPAR      ::= OP0 | OP1 ;
+OP0     ::= Mas | Menos ;
+OP1     ::= Por | Div ;
 
-List    ::= BList 
-         | BList CONCAT List ;
-BList   ::= IDEN
-         | LREDUCE AP BList 
-         | LMAP AP Num BList 
-         | LFILTER REL Num BList
-         | LB COMITAS RB ;
+LISTA   ::= Iden BLISTA
+        | Lreduce OPAR LISTA BLISTA
+        | Lmap OPAR Num LISTA BLISTA
+        | Lfilter OPREL Num LISTA BLISTA
+        | Lb DENTRO Rb BLISTA;
+        
+BLISTA  ::= Concat LISTA BLISTA | ;
 
-COMITAS ::= RELL | RELL COMA COMITAS ;
-RELL    ::= Num | LB COMITAS RB ;
+DENTRO  ::= COMITAS | ;
+COMITAS ::= ELEM | ELEM Coma COMITAS ;
+ELEM    ::= Num | LISTA ;
+
 
